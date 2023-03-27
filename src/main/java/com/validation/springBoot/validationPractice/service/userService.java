@@ -20,7 +20,8 @@ public class userService {
         User user = User.build(0,userRequest.getName(),userRequest.getEmail(),userRequest.getGender()
                                  ,userRequest.getMobile(),userRequest.getAge(),userRequest.getNationality()
                      );
-         return userRepository.save(user);
+        return userRepository.save(user);
+
     }
 
     public List<User> getAllUser()
@@ -28,9 +29,10 @@ public class userService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(int id)
+    public User getUserById(int id)
     {
-        return userRepository.findById(id);
+        User user = userRepository.findById(id).orElseThrow(()-> new RuntimeException("userNot found"));
+        return user;
     }
 
 
