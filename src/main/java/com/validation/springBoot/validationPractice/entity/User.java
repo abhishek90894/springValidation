@@ -1,17 +1,21 @@
 package com.validation.springBoot.validationPractice.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.web.WebProperties;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user")
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor(staticName = "build")
+@NoArgsConstructor
 public class User {
  @Id
- @GeneratedValue()
+ @GeneratedValue
     private int id;
 
     private String name;
