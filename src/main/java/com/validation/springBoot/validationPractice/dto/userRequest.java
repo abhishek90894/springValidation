@@ -14,7 +14,7 @@ public class userRequest {
     private String name;
     @Email(message = "invalid email address")
     private String email;
-    @Pattern(regexp = "/^\\d{10}$",message = "invalid mobile number")
+    @Pattern(regexp ="^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$",message = "invalid mobile number")
     private String mobile;
     private String gender;
     @Min(value=18,message = "minimum age should be 18")
