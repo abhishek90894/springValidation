@@ -1,5 +1,6 @@
 package com.validation.springBoot.validationPractice.service;
 
+import com.validation.springBoot.validationPractice.Exception.userNotFoundException;
 import com.validation.springBoot.validationPractice.dto.userRequest;
 import com.validation.springBoot.validationPractice.entity.User;
 import com.validation.springBoot.validationPractice.repository.userRepository;
@@ -31,7 +32,7 @@ public class userService {
 
     public User getUserById(int id)
     {
-        User user = userRepository.findById(id).orElseThrow(()-> new RuntimeException("userNot found"));
+        User user = userRepository.findById(id).orElseThrow(()-> new userNotFoundException("userNotFound,please provide valid userId"));
         return user;
     }
 
