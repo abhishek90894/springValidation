@@ -3,6 +3,7 @@ package com.validation.springBoot.validationPractice.controller;
 import com.validation.springBoot.validationPractice.dto.userRequest;
 import com.validation.springBoot.validationPractice.entity.User;
 import com.validation.springBoot.validationPractice.service.userService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class userController {
     @Autowired
   private  userService userService;
     @PostMapping("/signUp")
-    public ResponseEntity<User> saveUser(@RequestBody userRequest userRequest)
+    public ResponseEntity<User> saveUser(@RequestBody @Valid userRequest userRequest)
     {
          User user = userService.saveUser(userRequest);
 
